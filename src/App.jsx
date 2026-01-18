@@ -2,9 +2,11 @@ import "./App.css";
 //import { useState } from "react";
 import AddBook from "./components/AddBook";
 import BookList from "./components/BookList";
-import BookLibrary from './components/BookLibrary'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import BookLibrary from "./components/BookLibrary";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { unsplashAPI } from "./services/api";
+import { useEffect } from "react";
 
 function App() {
   // const [books, setBooks] = useState([]);
@@ -14,9 +16,23 @@ function App() {
   //   setBooks([...books, value]);
   // };
 
+  useEffect(() => {
+    
+    const fetchData = async () => {
+     const response = await unsplashAPI.searchImage();
+     console.log(response.data)
+    };
+
+    fetchData();
+
+    return () => {
+      // Synchronous cleanup logic here...
+    }
+  }, []);
+
   return (
     <>
-    <Header />
+      <Header />
       <main className="flex-1 overflow-y-auto p-1">
         {/* <AddBook submit={addBookHandler} />
         <hr className="bg-gray-600"/>

@@ -1,0 +1,16 @@
+
+POST http://localhost:8080/comments HTTP/1.1
+content-type: application/json
+Authorization: token xxx
+
+{ 
+    "id": "3", 
+    "text": "a comment about post 2", 
+    "postId": "1"
+ }
+
+
+###
+
+GET http://localhost:8080/comments HTTP/1.1
+content-type: application/json

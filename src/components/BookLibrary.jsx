@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Search, Star, BookOpen, Trash2, Plus, Pencil } from "lucide-react";
+import { bookAPI } from '../services/api'
 
 export default function BookLibrary() {
   const [books, setBooks] = useState([
@@ -89,6 +90,13 @@ export default function BookLibrary() {
           cover: colors[Math.floor(Math.random() * colors.length)],
         },
       ]);
+
+      bookAPI.addBook({
+          id: Date.now(),
+          ...newBook,
+          year: parseInt(newBook.year) || new Date().getFullYear(),
+          cover: colors[Math.floor(Math.random() * colors.length)],
+        })
 
       setNewBook({
         title: "",
