@@ -13,7 +13,7 @@ const unsplashInstance = axios.create({
   timeout: 1000,
   headers: {
     "content-type": "application/json",
-    Authorization: 'Client-ID Eu6MdzH8a_iqvU1h_uB6YXIphrqTLgEIqhsXByFm95U'
+    Authorization: 'Dummy Data'
   },
 });
 
